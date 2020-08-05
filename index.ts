@@ -15,7 +15,7 @@ let body: string;
 let obj: Element[] = [];
 
 for (var i = 1; i <= 118; i++) {
-    requestData(i).then(s => fs.appendFile("test.json", JSON.stringify(s), function(err) {
+    requestData(i).then(s => fs.appendFile("result/elements.json", JSON.stringify(s, null, 4), function(err) {
         if(err) throw err;
     }));
 }
