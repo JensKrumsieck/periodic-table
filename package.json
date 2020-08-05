@@ -2,7 +2,7 @@
   "name": "periodic-table",
   "version": "1.0.0",
   "description": "fetches periodic table data from API",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "start": "ts-node index.ts"
   },
