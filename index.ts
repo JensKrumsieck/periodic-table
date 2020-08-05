@@ -1,4 +1,4 @@
-import axios, { AxiosResponse } from 'axios';
+import axios from 'axios';
 import { parse } from 'node-html-parser';
 import * as fs from 'fs';
 
@@ -48,20 +48,24 @@ async function requestData(i: number): Promise<Element> {
 
     element.Name = captionParts[0];
     element.Symbol = captionParts[1].replace(/\d*/, "")
+    element.AtomicNumber = i;
 
     var tbody = infobox.querySelector("tbody");
     tbody.childNodes.forEach(s => {
         var tr = (s as any) as HTMLElement;
         if (tr.querySelector("th")?.hasAttribute("scope")) {
+
             var td = tr.querySelector("td");
             var th = tr.querySelector("th");
             head = decode(th?.innerHTML)
             body = decode(td?.innerHTML);
-            if (head.includes("Standard atomic weight")) head = "Standard atomic weight";
+
+            if (head.includes("atomic weight") || head.includes("Mass number")) head = "AtomicWeight";
             if (fields.has(head)) {
                 head = fields.get(head) as string;
-                body = regex.get(head)?.exec(body)?.toString() as string;
-                (element as any)[head] = body;
+                body = body.match(regex.get(head) != null ? regex.get(head) as RegExp : /.+/g)?.values().next().value as string;
+
+                (element as any)[head] = (isNaN(+body) ? body : Number.parseFloat(body));
             }
         }
     });
