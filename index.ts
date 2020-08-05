@@ -12,12 +12,25 @@ let url = "https://en.wikipedia.org/wiki/Element_";
 
 let head: string;
 let body: string;
-let obj: Element[] = [];
 
-for (var i = 1; i <= 118; i++) {
-    requestData(i).then(s => fs.appendFile("result/elements.json", JSON.stringify(s, null, 4), function(err) {
-        if(err) throw err;
-    }));
+if (fs.existsSync("result/")) fs.rmdirSync("result/", { recursive: true });
+
+fs.mkdir("result/", err => {
+    if (err) throw err;
+});
+
+getData().then(s =>
+    fs.writeFile("result/elements.json", JSON.stringify(s.sort(j => j.AtomicNumber), null, 4), err => {
+        if (err) throw err;
+    })
+);
+
+async function getData(): Promise<Element[]> {
+    var obj: Element[] = []
+    for (var i = 1; i <= 118; i++) {
+        obj.push(await requestData(i));
+    }
+    return obj;
 }
 
 function decode(input: string | undefined): string {

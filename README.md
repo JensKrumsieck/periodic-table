@@ -17,3 +17,4 @@ and run the script
 ```
 npm run start
 ```
+This may takes a while ;)
