@@ -18,3 +18,5 @@ and run the script
 npm run start
 ```
 This may takes a while 😉
+
+Make sure to not spam the wikipedia site! Use this for file generation only.
