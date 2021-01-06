@@ -13,7 +13,7 @@
   "author": "Jens Krumsieck",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "he": "^1.2.0",
     "node-html-parser": "^1.2.20",
     "ts-node": "^8.10.2",
