@@ -18,7 +18,7 @@ fields.set("CAS Number", "CAS");
 var regex = new Map<string, RegExp>();
 regex.set("AtomicWeight", /\d+[.]?\d*/g);
 regex.set("Appearance", /.+/g);
-regex.set("Group", /\d/g);
+regex.set("Group", /\d+/g);
 regex.set("Period", /\d/g);
 regex.set("Block", /.+/g);
 regex.set("Category", /.+/g);
