@@ -1,5 +1,5 @@
 //used fields mapping
-var fields = new Map<string, string>();
+const fields = new Map<string, string>();
 fields.set("Mass number", "AtomicWeight");
 fields.set("AtomicWeight", "AtomicWeight");
 fields.set("Appearance", "Appearance");
@@ -15,7 +15,7 @@ fields.set("Covalent radius", "CovalentRadius");
 fields.set("Van der Waals radius", "VdWRadius");
 fields.set("CAS Number", "CAS");
 
-var regex = new Map<string, RegExp>();
+const regex = new Map<string, RegExp>();
 regex.set("AtomicWeight", /\d+[.]?\d*/g);
 regex.set("Appearance", /.+/g);
 regex.set("Group", /\d+/g);
