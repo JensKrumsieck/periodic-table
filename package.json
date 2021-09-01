@@ -14,7 +14,7 @@
   "author": "Jens Krumsieck",
   "license": "MIT",
   "dependencies": {
-    "@types/node": "^15.0.3",
+    "@types/node": "^16.7.10",
     "axios": "^0.21.1",
     "he": "^1.2.0",
     "node-html-parser": "^3.2.0",
